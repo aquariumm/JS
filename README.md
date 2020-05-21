@@ -1,2 +1,2 @@
 # JS
-JS standalone
+JS standalone apps. Mostly JS, minimal HTML, CSS when needed
