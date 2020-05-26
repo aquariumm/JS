@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const width = 10
     const grid = document.querySelector('.grid')
+    for (var i = 0; i < 210; i++) {
+        // grid.append('< div >' + '< /div>')
+        if (i < 200)
+            grid.innerHTML += '<div></div>'
+        else
+            grid.innerHTML += '<div class="taken"></div>'
+    }
     let squares = Array.from(document.querySelectorAll('.grid div'))
-    const StartBtn = document.getElementById('#start-button')
-    const ScoreDisplay = document.getElementById('#score')
+    const StartBtn = document.getElementById('start-button')
+    const ScoreDisplay = document.getElementById('score')
     let timerId
+
 
     const lShapeTetromino = [
         [1, width + 1, width * 2 + 1, 2],
@@ -65,5 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
         undraw()
         currentPosition += width
         draw()
+        freeze()
     }
+
+    function freeze() {
+        if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
+            current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+            random = Math.floor(Math.random() * tetrominoes.length)
+            current = tetrominoes[random][currentRotation]
+            currentPosition = 4
+            draw()
+        }
+    }
+
 })
