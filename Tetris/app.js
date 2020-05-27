@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const StartBtn = document.getElementById('start-button')
     const ScoreDisplay = document.getElementById('score')
     let timerId
-
-
+    const mini_grid = document.querySelector('.mini-grid')
+    for (var i = 0; i < 16; i++) {
+        mini_grid.innerHTML += '<div></div>'
+    }
     const lShapeTetromino = [
         [1, width + 1, width * 2 + 1, 2],
         [width, width + 1, width + 2, width * 2 + 2],
