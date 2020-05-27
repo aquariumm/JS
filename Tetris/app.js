@@ -16,6 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
     for (var i = 0; i < 16; i++) {
         mini_grid.innerHTML += '<div></div>'
     }
+
+    const displaySquares = document.querySelectorAll('.mini-grid div')
+    const displayWidth = 4
+    let displayIndex = 0
+    let nextRandom = 0
+
+    const upNextTetrominoes = [
+        [1, displayWidth + 1, displayWidth * 2 + 1, 2],
+        [0, 1, displayWidth, displayWidth + 1],
+        [1, displayWidth, displayWidth + 1, displayWidth + 2],
+        [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1],
+        [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1],
+    ]
+
+
+
     const lShapeTetromino = [
         [1, width + 1, width * 2 + 1, 2],
         [width, width + 1, width + 2, width * 2 + 2],
@@ -126,4 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
         current = tetrominoes[random][currentRotation]
         draw()
     }
+
+    function displayShape() {
+        displaySquares.forEach(squre => { squre.classList.remove('tetromino') })
+        upNextTetrominoes[nextRandom]
+    }
+
 })
