@@ -1,0 +1,18 @@
+.the-button {
+    background-color: rgba(206, 173, 111, 0.747);
+    font-weight: bold;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.container div {
+    display: inline-block;
+}
+
+body {
+    background-color: lightblue;
+}
