@@ -1,1 +1,0 @@
-function fun() { console.log('this is a function') }
